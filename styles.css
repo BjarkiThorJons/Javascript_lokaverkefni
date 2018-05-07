@@ -1,0 +1,12 @@
+body{
+	text-align: center;
+	max-width: 1140px;
+	margin: 0 auto;
+}
+.syning{
+	float: left;
+}
+h2{
+	max-width: 285px;
+	max-height: 27px;
+}
