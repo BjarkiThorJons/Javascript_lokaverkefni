@@ -10,9 +10,9 @@ $.ajax({
 	for (let key in tonleikar){
 		let hlutur = tonleikar[key]
 		let timi = hlutur.date.split("T");
-		let dagsettning = timi[0].split("-")
-		let dagsettningin = dagsettning[2]+"-"+dagsettning[1]+"-"+dagsettning[0]
-		document.getElementById("syningar").innerHTML +='<div id="'+key+'" class="syning " alt="'+hlutur.stadur+'"><img src='+hlutur.mynd+' />'+'<h2>'+key+'</h2><h3>'+hlutur.stadur+'</h3><h4>'+dagsettningin+'</h4><h6>'+timi[1]+'</h6></div>';
+		let dagsetning = timi[0].split("-")
+		let dagsetningin = dagsetning[2]+"-"+dagsetning[1]+"-"+dagsetning[0]
+		document.getElementById("syningar").innerHTML +='<div id="'+key+'" class="syning " alt="'+hlutur.stadur+'"><img src='+hlutur.mynd+' />'+'<h2>'+key+'</h2><h3>'+hlutur.stadur+'</h3><h4>'+dagsetningin+'</h4><h6>'+timi[1]+'</h6></div>';
 	};
 
   }
@@ -32,7 +32,7 @@ function leita(){
 			
 		};
 	};
-function stadsettning(){
+function stadsetning(){
 	let divtag = document.getElementById("syningar");
 	let syningarnar = divtag.getElementsByTagName('div');
 	let stadur = document.getElementById("stadur");
