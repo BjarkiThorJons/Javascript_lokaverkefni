@@ -12,7 +12,7 @@ $.ajax({
 		let timi = hlutur.date.split("T");
 		let dagsettning = timi[0].split("-")
 		let dagsettningin = dagsettning[2]+"-"+dagsettning[1]+"-"+dagsettning[0]
-		document.getElementById("syningar").innerHTML +='<div id="'+key+'" class="syning">'+'<h2>'+key+'</h2><h4>'+dagsettningin+'</h4><h6>'+timi[1]+'</h6><img src='+hlutur.mynd+' /></div>';
+		document.getElementById("syningar").innerHTML +='<div id="'+key+'" class="syning " alt="'+hlutur.stadur+'"><img src='+hlutur.mynd+' />'+'<h2>'+key+'</h2><h3>'+hlutur.stadur+'</h3><h4>'+dagsettningin+'</h4><h6>'+timi[1]+'</h6></div>';
 	};
 
   }
@@ -32,17 +32,18 @@ function leita(){
 			
 		};
 	};
-function dagsettning(){
+function stadsettning(){
 	let divtag = document.getElementById("syningar");
 	let syningarnar = divtag.getElementsByTagName('div');
-	let fra = document.getElementById("fra");
-	let til = document.getElementById("til");
-	let fra_value = fra.value;
-	let til_value = til.value;
+	let stadur = document.getElementById("stadur");
+	let stadur_value = stadur.value.toLowerCase();
 	for (let i = 0; i< syningarnar.length; i++){
-			console.log(syningarnar[i].getElementsByTagName("h4"))
-			let timi = syningarnar[i].date.split("T");
-			let dagsettning = timi[0].split("-")
-			console.log(timi)
+			h3 = syningarnar[i].getElementsByTagName('h3')[0]
+			if (h3.innerHTML.toLowerCase().indexOf(stadur_value)){
+				syningarnar[i].style.display = "none";
+			}
+			else {
+				syningarnar[i].style.display = "";
+			}
 		};
 }
